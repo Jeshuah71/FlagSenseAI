@@ -61,7 +61,7 @@ if len(df) < 20:
     st.stop()
     
 # Only use evaluation labels if they are valid
-if "injected_anomaly" is df.columns:
+if "injected_anomaly" in df.columns:
     labels = pd.to_numeric(df["injected_anomaly"], errors="coerce")
     
     if labels.isin([0, 1]).all():
@@ -332,8 +332,8 @@ if uploaded_file is None:
         # Combine counts and percentages into one column
         scenario_results["Result"] = scenario_results.apply(
             lambda row: (
-                f'{int(row["Flagged"])} / {int(row["Total"])}'
-                f'({row["Detection Rate (%)"]:.1f}%)'
+                f'{int(row["Flagged"])} / {int(row["Total"])} '
+                f'({row["Flagged Rate (%)"]:.1f}%)'
             ),
             axis=1
         )
