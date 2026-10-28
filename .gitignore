@@ -1,0 +1,10 @@
+
+.venv/
+__pycache__/
+*.pyc
+.DS_Store
+.streamlit/secrets.toml
+
+analyzed_transactions.csv
+analized_transactions.csv
+unseen_test_results.csv
